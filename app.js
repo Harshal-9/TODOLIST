@@ -41,7 +41,7 @@ const defaultItems = [item1,item2,item3];
 
 app.get("/",function(req,res)
 {
-    var today = new Date();
+    // var today = new Date();
     // var dayNo = today.getDay();
 
     day = ourdate.myDay();
@@ -53,7 +53,7 @@ app.get("/",function(req,res)
          // Inserting in collection
             ItemModel.insertMany(defaultItems,function(err){
                 if(err)
-                console.log(err);
+                console.log("Yaha aaya error : "+err);
                 else
                 console.log("Success!");
             });
@@ -136,7 +136,10 @@ app.get("/:customListName",function(req,res){
     const customListName =_.capitalize(req.params.customListName);
 
     console.log(req.params.customListName);
-    
+
+    // if(customListName=="Favicon.ico")
+    // res.redirect("/");
+
     List.findOne({name:customListName},function(err, foundList)
     {
         if(!err)
@@ -166,7 +169,7 @@ app.get("/:customListName",function(req,res){
 
 });
 
-app.listen(3000,function()
+app.listen(process.env.PORT || 3000,function()
 {
     console.log("Server started on 3000");
 });
