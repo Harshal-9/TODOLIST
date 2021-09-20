@@ -41,10 +41,10 @@ const defaultItems = [item1,item2,item3];
 
 app.get("/",function(req,res)
 {
-    // var today = new Date();
+    var today = new Date();
     // var dayNo = today.getDay();
 
-    // day = ourdate.myDay();
+    day = ourdate.myDay();
 
     ItemModel.find({},function(err,foundItems)
     {
@@ -166,7 +166,7 @@ app.get("/:customListName",function(req,res){
 
 });
 
-app.listen(process.env.PORT||3000,function()
+app.listen(3000,function()
 {
     console.log("Server started on 3000");
 });
