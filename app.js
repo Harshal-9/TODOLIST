@@ -135,7 +135,7 @@ const List = mongoose.model("List",listSchema);
 app.get("/:customListName",function(req,res){
     const customListName =_.capitalize(req.params.customListName);
 
-    console.log(req.params.customListName);
+    console.log("Express route : "+req.params.customListName);
 
     // if(customListName=="Favicon.ico")
     // res.redirect("/");
